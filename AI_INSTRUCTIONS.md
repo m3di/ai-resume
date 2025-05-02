@@ -3,7 +3,7 @@ Ai Steps
 
 ### Step1
 
-generate md file based on the description inside it
+generate markdown/resume.md file based on the description inside it
 
 ```
 you have to generate resume.md file text to be replaced
