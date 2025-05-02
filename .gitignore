@@ -1,8 +1,0 @@
-*.log
-*.swo
-*.swp
-output/
-result
-result-*
-.envrc
-.direnv
