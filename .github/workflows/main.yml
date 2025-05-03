@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Install ConTeXt
         run: |
@@ -30,7 +30,7 @@ jobs:
           make pdf
 
       - name: Upload Resume PDF
-        uses: actions/upload-artifact@v2.2.3
+        uses: actions/upload-artifact@v4
         with:
           name: Resume PDF
           path: output/*.pdf
