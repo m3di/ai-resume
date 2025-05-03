@@ -5,8 +5,8 @@ A clean, simple resume generation system that converts a ConTeXt source file int
 ## Getting Started
 
 ```bash
-git clone https://github.com/mszep/pandoc_resume
-cd pandoc_resume
+git clone https://github.com/m3di/ai-resume.git
+cd ai-resume
 ```
 
 ## Usage Options
@@ -84,5 +84,3 @@ mtxrun --generate
 For more details, see [ConTeXt troubleshooting](https://tex.stackexchange.com/questions/53892/texlive-2011-context-problem).
 
 To debug PDF generation issues, check the log files in the `output` directory.
-
-Would you like this `README.md` turned into a PR or patch for your Git project?
