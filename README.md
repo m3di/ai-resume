@@ -84,3 +84,7 @@ mtxrun --generate
 For more details, see [ConTeXt troubleshooting](https://tex.stackexchange.com/questions/53892/texlive-2011-context-problem).
 
 To debug PDF generation issues, check the log files in the `output` directory.
+
+## Acknowledgments
+
+This project is based on [pandoc_resume](https://github.com/mszep/pandoc_resume) by mszep but has been fundamentally modified to meet different requirements.
