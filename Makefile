@@ -1,58 +1,57 @@
-OUT_DIR=output
-IN_DIR=markdown
-STYLES_DIR=styles
-STYLE=chmduquesne
+# --------- Build settings ----------------------------------------------------
+OUT_DIR      = output
+STYLE_DIR    = styles
+STYLE_BASE   = chmduquesne          # chmduquesne.tex  /  chmduquesne.css
+TEX_SOURCE   = $(STYLE_DIR)/$(STYLE_BASE).tex
+CSS_SOURCE   = $(STYLE_DIR)/$(STYLE_BASE).css
 
-all: html pdf docx rtf
+# --------- Phony targets -----------------------------------------------------
+.PHONY: all pdf html docx rtf init dir clean
 
+all: pdf html docx rtf           # default target  ->  make
+
+# --------- PDF (ConTeXt) -----------------------------------------------------
 pdf: init
-	for f in $(IN_DIR)/*.md; do \
-		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
-		echo $$FILE_NAME.pdf; \
-		pandoc --standalone --template $(STYLES_DIR)/$(STYLE).tex \
-			--from markdown --to context \
-			--variable papersize=A4 \
-			--output $(OUT_DIR)/$$FILE_NAME.tex $$f > /dev/null; \
-		mtxrun --path=$(OUT_DIR) --result=$$FILE_NAME.pdf --script context $$FILE_NAME.tex > $(OUT_DIR)/context_$$FILE_NAME.log 2>&1; \
-	done
+	@echo "==> $(STYLE_BASE).pdf"
+	@mtxrun --path=$(STYLE_DIR) \
+	        --result=$(STYLE_BASE).pdf \
+	        --script context $(TEX_SOURCE) \
+	        > $(OUT_DIR)/context_$(STYLE_BASE).log 2>&1
+	@mv $(STYLE_BASE).pdf $(OUT_DIR)/
 
+# --------- HTML --------------------------------------------------------------
 html: init
-	for f in $(IN_DIR)/*.md; do \
-		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
-		echo $$FILE_NAME.html; \
-		pandoc --standalone --include-in-header $(STYLES_DIR)/$(STYLE).css \
-			--lua-filter=pdc-links-target-blank.lua \
-			--from markdown --to html \
-			--output $(OUT_DIR)/$$FILE_NAME.html $$f \
-			--metadata pagetitle=$$FILE_NAME;\
-	done
+	@echo "==> $(STYLE_BASE).html"
+	@pandoc --standalone \
+	        --from latex --to html \
+	        --include-in-header $(CSS_SOURCE) \
+	        --lua-filter=pdc-links-target-blank.lua \
+	        --metadata pagetitle="$(STYLE_BASE)" \
+	        --output $(OUT_DIR)/$(STYLE_BASE).html \
+	        $(TEX_SOURCE)
 
+# --------- DOCX --------------------------------------------------------------
 docx: init
-	for f in $(IN_DIR)/*.md; do \
-		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
-		echo $$FILE_NAME.docx; \
-		pandoc --standalone $$SMART $$f --output $(OUT_DIR)/$$FILE_NAME.docx; \
-	done
+	@echo "==> $(STYLE_BASE).docx"
+	@pandoc --standalone \
+	        --from latex --to docx \
+	        --output $(OUT_DIR)/$(STYLE_BASE).docx \
+	        $(TEX_SOURCE)
 
+# --------- RTF ---------------------------------------------------------------
 rtf: init
-	for f in $(IN_DIR)/*.md; do \
-		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
-		echo $$FILE_NAME.rtf; \
-		pandoc --standalone $$SMART $$f --output $(OUT_DIR)/$$FILE_NAME.rtf; \
-	done
+	@echo "==> $(STYLE_BASE).rtf"
+	@pandoc --standalone \
+	        --from latex --to rtf \
+	        --output $(OUT_DIR)/$(STYLE_BASE).rtf \
+	        $(TEX_SOURCE)
 
-init: dir version
+# --------- Helpers -----------------------------------------------------------
+init: dir
 
 dir:
-	mkdir -p $(OUT_DIR)
-
-version:
-	PANDOC_VERSION=`pandoc --version | head -1 | cut -d' ' -f2 | cut -d'.' -f1`; \
-	if [ "$$PANDOC_VERSION" -eq "2" ]; then \
-		SMART=-smart; \
-	else \
-		SMART=--smart; \
-	fi \
+	@mkdir -p $(OUT_DIR)
 
 clean:
-	rm -f $(OUT_DIR)/*
+	@echo "Cleaning $(OUT_DIR)…"
+	@rm -f $(OUT_DIR)/*
