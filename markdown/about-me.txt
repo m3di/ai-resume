@@ -1,0 +1,72 @@
+# About Me
+
+📝 You don't need to follow a specific order or format here. Just write your background in a natural, conversational way. The AI will analyze it intelligently.
+
+---
+
+## Personal Information
+
+Name: Alex Carter  
+Email: alex.carter@example.com  
+Phone: +1 555 123 4567  
+Location: Toronto, Canada  
+
+LinkedIn: https://www.linkedin.com/in/alex-carter  
+GitHub: https://github.com/alexcdev  
+
+Languages:
+- Native in English
+- Conversational in Spanish
+- Beginner in Japanese
+
+---
+
+## Summary
+
+Creative and detail-oriented full-stack developer with 6+ years of experience designing scalable web applications. Passionate about clean code, thoughtful UX, and continuous learning. Experienced in both startup and enterprise environments.
+
+---
+
+## Experience
+
+**Freelance Sports Platform (alexsports.dev)**  
+*May 2014 – Present | Remote*  
+Built and scaled a nationwide sports event platform from scratch, serving over 100k users.  
+- Designed architecture and developed frontend/backend with Laravel, Vue.js, and MySQL  
+- Integrated real-time syncing, Dockerized deployment, and automated testing  
+- Maintained high system availability and performance over 10+ years
+
+**CyberSec Lab – Horizon University**  
+*Jul 2016 – Sep 2019 | Research Assistant*  
+- Conducted security audits and penetration testing using OWASP guidelines  
+- Gave workshops on secure web development with Laravel  
+- Built a simple single sign-on system for lab tools
+
+**ProjectNest (Remote, US-based SaaS company)**  
+*Sep 2021 – Dec 2024*  
+Joined as a full-stack developer working on a complex project management app.  
+- Built and maintained core features using Laravel, Vue 3, Tailwind, and Docker  
+- Integrated third-party tools like Stripe, Intercom, Segment, and Zapier  
+- Designed and implemented “Development Panel” for customer support ops  
+- Introduced dark mode and refactored large parts of the frontend to TypeScript  
+- Added PDF/CSV export, chart view, onboarding, and end-to-end tests using Cypress  
+
+**SignalStack (Remote, Europe)**  
+*Dec 2024 – Present*  
+Hired to modernize the frontend of an affiliate marketing SaaS platform in the iGaming space.  
+- Migrated frontend from AngularJS to Vue 3  
+- Dockerized development and CI/CD pipeline  
+- Proposed and executed a frontend rebuild roadmap  
+- Helped hire and onboard new developers
+
+---
+
+## Education
+
+**Tech University of Canada**  
+Master’s in Bioinformatics (2019–2021)  
+GPA: 3.6  
+
+**Metro State University**  
+Bachelor’s in Computer Engineering (2013–2017)  
+GPA: 3.8, Graduated with Honors  

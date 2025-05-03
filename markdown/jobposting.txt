@@ -1,0 +1,51 @@
+HelloContainer
+Senior Full stack Developer (Laravel)
+Rotterdam, South Holland, Netherlands
+
+Hybrid
+
+ Full-time
+
+About the job
+Name: Senior Full stack Developer
+
+Hours: Full-time (36–40 hours/week) 
+
+Location: South Holland – Rotterdam – Science Tower
+
+ 
+HelloContainer
+
+At HelloContainer, you’ll work on an innovative platform that simplifies, streamlines, and makes container export more sustainable. You’ll ensure our front-end runs smoothly—handling upgrades, optimizations, and implementing new features. Your expertise is key to elevating our platform to the next level. 
+
+ 
+About the Project
+
+For this project, we are looking for a Senior Front-End Developer and a Senior Full Stack Developer located near Rotterdam. Working in a small team from the Science Tower, you’ll focus on optimizing and strengthening the foundation of our platform. This includes refactoring the codebase, with an emphasis on quality and scalability for the future. 
+
+ 
+Your Responsibilities 
+Optimize and restructure existing code 
+Test, document, and improve software components 
+Collaborate with (front-end) development colleagues to deliver innovative solutions 
+ 
+What you bring:
+
+At least 5 years of experience as a software developer 
+Strong experience with Laravel and PHP 
+A structured, analytical mindset with great attention to detail 
+Knowledge of databases (MySQL), APIs, and cloud solutions is a plus 
+Experience with DevOps and CI/CD pipelines is an advantage 
+ 
+What We Offer
+
+A challenging project within an innovative and sustainability-driven organization 
+The opportunity to help take a unique platform to the next level 
+A market-competitive hourly rate or salary based on experience 
+A key role in the further development of HelloContainer, working from our office in the high-tech environment of the Science Tower in Rotterdam 
+ 
+Interested?
+
+Do you want to help shape the future of sustainable shipping and apply your skills to this exciting project? Apply now and send an email with your CV and motivation to ron@hellocontainer.com. We look forward to your response!
+ 
+*Please note that we are primarily looking for candidates who are currently residing in the Netherlands 
