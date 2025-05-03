@@ -6,7 +6,7 @@ This guide helps you use AI to create a professionally formatted resume based on
 
 1. Prepare your input files
 2. Generate LaTeX files using AI
-3. Build your resume in multiple formats
+3. Build your resume in pdf format
 4. Review and refine
 
 ## Step 1: Prepare Input Files
@@ -81,12 +81,22 @@ The AI should:
 
 ### Using Docker (recommended)
 ```bash
+# Start the container and generate PDF (default action)
 docker-compose up
+
+# Or run specific commands in the container:
+docker-compose run resume pdf       # Generate only the PDF
+docker-compose run resume clean     # Clean the output directory
+docker-compose run resume clean-pdf # Clean and regenerate the PDF
 ```
+
+The container will mount your local directory, so all changes will be immediately visible in your project folder.
 
 ### Using Local Tools
 ```bash
-make all  # or: make pdf, make html, etc.
+make pdf       # Generate PDF
+make clean     # Clean the output directory
+make clean-pdf # Clean and regenerate the PDF
 ```
 
 Output files will be in the `output/` directory.
@@ -94,14 +104,52 @@ Output files will be in the `output/` directory.
 ## Step 4: Review & Refine
 
 1. Check generated files in the `output/` directory
-2. Review the PDF and HTML versions
+2. Review the PDF using your preferred PDF viewer:
+   ```bash
+   # macOS
+   open output/chmduquesne.pdf
+   
+   # Linux
+   xdg-open output/chmduquesne.pdf
+   
+   # Windows
+   start output/chmduquesne.pdf
+   ```
 3. Make adjustments to the `.tex` or `.css` files as needed
 4. Rebuild using the commands in Step 3
 
 ## Troubleshooting
 
 If you encounter build errors:
-1. Check output logs
-2. Verify LaTeX syntax in `styles/chmduquesne.tex`
-3. Ensure CSS is valid in `styles/chmduquesne.css`
-4. Rebuild with `docker-compose up` or `make`
+1. Check output logs:
+   ```bash
+   # View context log (contains LaTeX processing information)
+   cat output/context.log
+   ```
+
+2. Debug inside the container:
+   ```bash
+   # Start an interactive shell in the container
+   docker-compose run --entrypoint /bin/bash resume -c "cd /app && /bin/bash"
+   
+   # From there, run commands manually:
+   cd styles
+   context chmduquesne.tex
+   ```
+
+3. Verify LaTeX syntax in `styles/chmduquesne.tex`
+4. Ensure CSS is valid in `styles/chmduquesne.css`
+5. Rebuild with `docker-compose up` or `make pdf`
+
+## Docker Container Management
+
+```bash
+# Build or rebuild the container
+docker-compose build
+
+# Stop and remove containers
+docker-compose down
+
+# View container logs
+docker-compose logs
+```

@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: .docker/resume.dockerfile
     volumes:
-      - ./output:/app/output
+      - ./:/app/
     # Default to generating PDF
     command: pdf
 
