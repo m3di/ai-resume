@@ -1,48 +1,78 @@
-Ai Steps
-===================
+## AI Integration Steps
 
+---
 
-### Step 1
+### Step 1: Understand the Context
 
-first you need to understand me and my history and get fimilliar of my perspective
-to do that please read file markdown/me.txt
+To generate a relevant and well-structured resume, start by reading the following files:
 
-```
-markdown/me.txt in this file you will find basic knoldge how to process information about me and also a detailed story of me and my informations
-```
+* `markdown/me.txt`
 
-### Step 2
+  > Contains personal and professional background, including how to interpret and prioritize my information.
 
-generate markdown/resume.md file based on the instructions
+* `markdown/jobposting.txt`
 
-```
-you have to generate markdown/resume.md file
-later we want to generate a tex template and it style to render it to pdf
-in the next step i want to generate that so you can improve the md formatting to later pick it up by tex template
-```
+  > The target job description and requirements to tailor the resume accordingly.
 
-#### step 3
+* `markdown/template.txt`
 
-now update the styles/chmduquesne.tex and styles/chmduquesne.css to display a professional resume with classic theme in pdf
+  > Specifications and structure for how the resume should be formatted using LaTeX and styling guidelines.
 
-```
-now update the styles/chmduquesne.tex and styles/chmduquesne.css to display a professional resume with classic theme in pdf
-```
+---
 
-#### Step 4
+### Step 2: Generate LaTeX Resume and Style Files
 
-now everything is ready give it a shot at generating tex and pdf
+Based on the information above, generate the following:
+
+* `styles/chmduquesne.tex`
+
+  > The LaTeX source for the resume content.
+
+* `styles/chmduquesne.css`
+
+  > Styling rules to ensure a clean, professional, and classic resume layout.
+
+Ensure that the output:
+
+* Highlights relevant experience and skills for the job posting
+* Matches the template specification
+* Produces a well-formatted LaTeX structure ready for PDF rendering
+
+---
+
+### Step 3: Compile and Review
+
+Generate the PDF resume using Docker:
 
 ```bash
 docker-compose up -d
 ```
 
+This will:
 
-### Step 5
+* Compile the LaTeX source
+* Apply the CSS styles
+* Produce a PDF file in the `/output` directory
 
-the outputs and the results are added in the /output directory
+---
+
+### Step 4: Debug and Improve
+
+Check for any LaTeX errors or formatting issues:
+
+**Log file to check:**
 
 ```
-in this step you need to fix the posible tex errors in the /output/resume.log
-and ubdate tex file to fix them and the again run "docker-compose up -d" to check if it is fixed
+/output/resume.log
 ```
+
+If issues are found:
+
+1. Edit the `.tex` or `.css` files to correct them
+2. Re-run the build process:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+Repeat as needed until the PDF is error-free and visually polished.

@@ -1,0 +1,7 @@
+*.log
+*.swo
+*.swp
+result
+result-*
+.envrc
+.direnv
