@@ -1,0 +1,70 @@
+/* chmduquesne.css - Auto-generated for resume styling */
+body {
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #111;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .section-heading {
+  color: #0066cc;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.name {
+  color: #0066cc;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 0.1em;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.contact-info {
+  text-align: right;
+  font-size: 1em;
+  margin-top: -3em;
+  margin-bottom: 2em;
+}
+
+.summary {
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+}
+
+.experience, .education {
+  margin-bottom: 1.5em;
+}
+
+.job-title {
+  font-weight: bold;
+}
+
+.company {
+  font-style: italic;
+}
+
+.dates {
+  float: right;
+  color: #555;
+}
+
+.skills {
+  columns: 2 200px;
+  -webkit-columns: 2 200px;
+  -moz-columns: 2 200px;
+  list-style: disc inside;
+  margin-top: 0.5em;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
