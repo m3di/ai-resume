@@ -13,7 +13,7 @@ This guide helps you use AI to create a professionally formatted resume based on
 
 Create these markdown files in the `markdown/` directory:
 
-* `me.txt` - Your professional background
+* `about-me.txt` - Your professional background and information
   ```markdown
   # Personal Information
   Name: [Your Name]
@@ -49,7 +49,7 @@ Create these markdown files in the `markdown/` directory:
   - Responsibility 2
   ```
 
-* `template.txt` - Format preferences
+* `knowledge.txt` - Format preferences
   ```markdown
   # Format Preferences
   
@@ -64,6 +64,8 @@ Create these markdown files in the `markdown/` directory:
   4. Experience
   5. Education
   ```
+
+* `template.txt` - This file contains best practices and tips for crafting a strong resume. Please read it carefully before generating your resume.
 
 ## Step 2: Generate LaTeX & CSS
 
