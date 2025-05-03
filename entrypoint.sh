@@ -8,30 +8,32 @@ mkdir -p /app/output
 clean() {
   echo "Cleaning output directory..."
   rm -rf /app/output/*
+  # Also clean any temporary files in styles directory
+  rm -f /app/styles/*.log /app/styles/*.tuc /app/styles/*.pdf
   echo "Output directory cleaned."
 }
 
 # Function to generate PDF
 generate_pdf() {
   echo "Generating PDF..."
-  cd /app/styles
   
-  # Run context and redirect logs to output directory
-  context chmduquesne.tex > /app/output/context.log 2>&1 
+  # Copy the tex file to output directory for processing
+  cp /app/styles/chmduquesne.tex /app/output/
+  
+  # Run context in the output directory to keep all temp files there
+  cd /app/output
+  context chmduquesne.tex > context.log 2>&1 
   
   # Check if PDF was generated successfully
   if [ -f "chmduquesne.pdf" ]; then
-    # Copy other log files to output directory for debugging
-    cp chmduquesne.log /app/output/ 2>/dev/null || true
-    cp chmduquesne.tuc /app/output/ 2>/dev/null || true
-    
-    # Move the generated PDF to output directory
-    mv chmduquesne.pdf /app/output/
     echo "PDF generated successfully and saved to output directory."
   else
     echo "Failed to generate PDF. Check logs in output directory for details."
     exit 1
   fi
+  
+  # Clean up the copied tex file
+  rm -f /app/output/chmduquesne.tex
 }
 
 # Main command processing
