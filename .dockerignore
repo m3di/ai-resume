@@ -2,8 +2,9 @@
 *.log
 *.pdf
 *.html
-resume.tex
 *.swo
 *.swp
 *.docx
 *.rtf
+.DS_Store
+output/

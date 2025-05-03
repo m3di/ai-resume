@@ -1,0 +1,125 @@
+Guidelines for each section of resume:
+
+[summary]
+A strong resume summary, also known as a professional summary or career profile, is a brief overview of your key skills, experience, and achievements that should be placed at the top of your resume. It acts as a compelling introduction to your resume, highlighting your value to the employer and capturing their attention. 
+Key Elements of a Resume Summary:
+Conciseness: Keep it brief, typically 2-4 sentences. 
+Relevance: Tailor it to the specific job you're applying for, highlighting skills and experience that align with the job description. 
+Clarity: Use clear and concise language, focusing on your key accomplishments and relevant skills. 
+Quantification: Whenever possible, use numbers and data to quantify your achievements and demonstrate your impact. 
+Keywords: Incorporate keywords from the job description to help your resume get past applicant tracking systems (ATS) and show that you're a good match. 
+Active Voice: Use action verbs to describe your experience and achievements. 
+Professional Tone: Maintain a professional and confident tone throughout the summary. 
+Examples of Resume Summary Statements:
+Example 1 (General):
+"Highly motivated and results-oriented professional with 5+ years of experience in project management, specializing in [specific industry]. Proven ability to lead and deliver projects on time and within budget, while consistently exceeding expectations." 
+Example 2 (Technical):
+"Experienced software engineer with expertise in [programming languages] and [technologies]. Skilled in developing and implementing innovative solutions for [specific problem area], resulting in [quantifiable achievement]." 
+Example 3 (Entry-Level):
+"Recent graduate with a Bachelor's degree in [major] and a strong passion for [industry]. Eager to contribute to a dynamic team and leverage my skills in [relevant skills] to achieve company goals." 
+How to Write Your Resume Summary:
+1. Research the job description:
+Carefully analyze the job description to identify the key skills, experience, and qualifications the employer is seeking. 
+2. Assess your skills and experience:
+Brainstorm your key skills, accomplishments, and experiences that align with the job description. 
+3. Quantify your achievements:
+Use numbers, percentages, or other data to show the impact you've made in your previous roles. 
+4. Draft your summary:
+Write a concise and compelling summary that highlights your most relevant qualifications and achievements. 
+5. Review and revise:
+Proofread your summary for any errors and refine it to ensure it's clear, concise, and impactful. 
+6. Tailor for each job:
+Adjust your summary for each job application, focusing on the skills and experience that are most relevant to the specific role.
+
+[education]
+To write the education section of your resume, list your highest degree first, in reverse chronological order, and include the school name, location, degree, major, and graduation year. You can also include your GPA (if above 3.5), honors, relevant coursework, or any achievements. 
+Here's a more detailed breakdown:
+1. Order: 
+List your degrees in reverse chronological order, starting with the most recent.
+2. Essential Information:
+School Name: Include the full name of the institution. 
+Location: Add the city and state (or city and country if applying internationally). 
+Degree: Specify the degree type (e.g., Bachelor of Science, Master of Arts). 
+Major: Indicate your major and minor, if applicable. 
+Graduation Date: Include the year you graduated or your expected graduation date. 
+3. Optional Information:
+GPA: Include your GPA if it's 3.5 or higher. 
+Honors: Mention any academic honors, such as dean's list, cum laude, etc. 
+Relevant Coursework: If specific coursework is relevant to the job, you can mention it. 
+Achievements: Highlight any significant academic achievements or projects. 
+Certifications: If you have relevant professional certifications, include them. 
+4. Format: 
+Keep the formatting consistent throughout your resume.
+Use a clear and concise style.
+
+[job experience]
+To write job experience in a resume, start with your most recent position and list it in reverse chronological order. For each entry, include the job title, company name and location, dates of employment, and 3-5 bullet points describing your responsibilities and accomplishments, using action verbs. Quantify your achievements whenever possible to show the impact of your work. 
+Here's a more detailed breakdown:
+1. Structure and Format:
+Reverse Chronological Order: List your work history starting with your most recent job and working backward. 
+Job Title: Clearly state your position title in each job. 
+Company Name and Location: Provide the full name of the company and its location (city, country). 
+Dates of Employment: Include the month and year you started and ended each job. 
+Responsibilities and Accomplishments:
+Use action verbs to begin each bullet point. 
+Focus on your achievements and the impact you made, rather than just listing daily tasks. 
+Quantify your accomplishments whenever possible to demonstrate your value. 
+Tailor each entry to the specific job you're applying for, highlighting skills and experiences relevant to the position. 
+2. Writing the Bullet Points:
+Start with an action verb: For example, "Managed," "Developed," "Led," "Implemented," etc. 
+Focus on achievements, not just responsibilities: Highlight what you accomplished and the results you achieved. 
+Quantify your achievements: Use numbers to show the impact of your work. For example, "Increased sales by 15%," "Reduced costs by 10%," or "Managed a team of 5". 
+Keep it concise: Use 3-5 bullet points per job to provide a clear overview of your experience. 
+Use the "WHAT, HOW, WHY" framework:
+WHAT: What was the situation or challenge? 
+HOW: How did you accomplish your tasks? 
+WHY: What was the result or impact? 
+3. Tailoring Your Resume:
+Match your resume to the job description:
+Highlight skills and experiences that are most relevant to the specific position you're applying for. 
+Consider the type of resume you're using:
+Chronological, functional, or combination resumes each highlight work experience differently. 
+By following these guidelines, you can create a strong and compelling work experience section on your resume that showcases your skills, accomplishments, and career progression.
+
+[keywords]
+To write effective keywords for your resume, identify relevant terms from job descriptions, use variations and synonyms, and integrate them naturally throughout your resume. Avoid keyword stuffing and aim for a balance between ATS optimization and readability. 
+Here's a more detailed breakdown:
+1. Identify Relevant Keywords:
+Analyze Job Descriptions:
+Carefully read the job description for the positions you're targeting and note the skills, technologies, and experience required. 
+Consider Keywords in Job Listings:
+Look for keywords used in job postings, particularly in the "required qualifications" and "responsibilities" sections. 
+Research Industry-Specific Terms:
+Explore industry websites, professional organizations, and other resources to identify common terms and phrases. 
+Utilize Resume Keyword Tools:
+Consider using online tools or software to analyze your resume and suggest relevant keywords, says Jobscan. 
+2. Incorporate Keywords Strategically:
+Use Keyword Variations:
+Don't just repeat the same keywords; use synonyms, acronyms, and related terms to demonstrate a broader skill set, says Indeed. 
+Place Keywords Throughout the Resume:
+Integrate keywords into your summary, skills, work experience, and education sections. 
+Use Action Verbs:
+Include action verbs to describe your accomplishments and demonstrate the impact of your work. 
+Be Specific:
+Tailor your keywords to the specific job description and avoid using generic terms. 
+Don't Overdo It:
+Avoid keyword stuffing, which can make your resume look unnatural and may be flagged by ATS software. 
+3. Examples of Keywords:
+Hard Skills:
+Specific software, programming languages, tools, and technologies (e.g., HTML, CSS, JavaScript, Python, SQL). 
+Soft Skills:
+Communication, teamwork, problem-solving, leadership, and adaptability. 
+Industry-Specific Terms:
+Keywords related to your industry or field (e.g., "data analytics," "social media marketing," "software development"). 
+Action Verbs:
+Words that describe accomplishments and results (e.g., "managed," "implemented," "developed," "achieved"). 
+Location-Specific Keywords:
+If the job description mentions a specific location, include it in your resume. 
+4. Examples of Keyword Usage:
+Skills Section:
+"Proficient in HTML, CSS, JavaScript, and React; Experienced in database management with SQL; Skilled in project management using Agile methodologies". 
+Work Experience Section:
+"Managed a team of 5 developers, leading to a 15% increase in product development efficiency; Developed and implemented a new marketing strategy, resulting in a 10% increase in lead generation". 
+Summary/Objective Section:
+"Experienced marketing professional with a proven track record in developing and executing successful marketing campaigns; Passionate about leveraging social media and SEO to drive brand awareness and increase engagement". 
+By following these steps and using keywords strategically, you can significantly increase the chances of your resume being noticed by ATS software and attracting the attention of hiring managers, says Indeed.

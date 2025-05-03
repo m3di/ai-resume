@@ -1,4 +1,5 @@
 *.log
+*.tuc
 *.swo
 *.swp
 output/
@@ -6,3 +7,4 @@ result
 result-*
 .envrc
 .direnv
+.DS_Store

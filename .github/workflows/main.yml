@@ -4,11 +4,11 @@ name: build-resume
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
-    paths:
-      - 'markdown/**'
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,17 +20,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Test directory contents
-        run: 'ls -al'
+      - name: Install ConTeXt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y context
 
-      - name: Build resume
-        uses: ./actions
+      - name: Build PDF Resume
+        run: |
+          make pdf
 
-      - name: Upload a Build Artifact
+      - name: Upload Resume PDF
         uses: actions/upload-artifact@v2.2.3
         with:
-          # Artifact name
-          name: Resume PDF # optional, default is artifact
-          # A file, directory or wildcard pattern that describes what to upload
+          name: Resume PDF
           path: output/*.pdf
 
