@@ -1,13 +1,14 @@
-version: '2'
+version: '3'
 
 services:
-
-  resume-make:
+  resume:
     build:
       context: .
-      dockerfile: ./.docker/resume.dockerfile
-    container_name: resume-make
-    entrypoint: /entrypoint.sh
-    image: resume-make
+      dockerfile: .docker/resume.dockerfile
     volumes:
-      - .:/home/app/resume:z
+      - ./styles:/app/styles
+      - ./output:/output
+    environment:
+      - OUT_DIR=/output
+    command: all # Default to building all formats (pdf, html, docx, rtf)
+    # Alternative commands: pdf, html, docx, rtf

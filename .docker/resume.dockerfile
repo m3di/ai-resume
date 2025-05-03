@@ -1,7 +1,23 @@
-FROM pandoc/latex:2.9
+FROM pandoc/latex:latest
 
-RUN apk add make texlive
+# Install required dependencies with a single RUN to reduce layers
+RUN apk add --no-cache \
+    make \
+    texlive \
+    texlive-xetex \
+    texlive-context \
+    && mkdir -p /output
 
-ENV TEXMF /usr/share/texmf-dist
+# Set up working directory and environment
+WORKDIR /app
+ENV TEXMF=/usr/share/texmf-dist
+ENV PATH="/app:$PATH"
 
-COPY actions/entrypoint.sh /entrypoint.sh
+# Copy only the necessary files for building
+COPY Makefile /app/
+COPY styles/ /app/styles/
+COPY pdc-links-target-blank.lua /app/
+
+# Set the entrypoint to run make with any provided arguments
+ENTRYPOINT ["make"]
+CMD ["all"]

@@ -1,15 +1,16 @@
--- Add target="_blank" attributes to all http links in a Pandoc document
+-- pdc-links-target-blank.lua
+-- Add target="_blank" to all external links in HTML output
 
-local function add_target_blank (link)
-    if string.match(link.target, '^http') then  -- here .target == href attribute
-        link.attributes.target = '_blank'       -- here .target == traget attribute
+function Link(el)
+  -- Only modify links in HTML output
+  if FORMAT:match 'html' then
+    -- Check if the link is external by looking for http/https protocol
+    if el.target:match('^https?://') then
+      -- Set attributes for external links
+      el.attributes['target'] = '_blank'
+      el.attributes['rel'] = 'noopener noreferrer'
     end
-    return link
+  end
+  return el
 end
-
--- remove lines 4 and 6 to add target="_blank" to all links, not just http(s)
-
-return {
-    { Link = add_target_blank }
-}
 

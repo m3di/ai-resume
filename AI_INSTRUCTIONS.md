@@ -1,78 +1,107 @@
-## AI Integration Steps
+# AI-Assisted Resume Generation
 
----
+This guide helps you use AI to create a professionally formatted resume based on your information and a job posting.
 
-### Step 1: Understand the Context
+## Workflow Overview
 
-To generate a relevant and well-structured resume, start by reading the following files:
+1. Prepare your input files
+2. Generate LaTeX files using AI
+3. Build your resume in multiple formats
+4. Review and refine
 
-* `markdown/me.txt`
+## Step 1: Prepare Input Files
 
-  > Contains personal and professional background, including how to interpret and prioritize my information.
+Create these markdown files in the `markdown/` directory:
 
-* `markdown/jobposting.txt`
+* `me.txt` - Your professional background
+  ```markdown
+  # Personal Information
+  Name: [Your Name]
+  Email: [your.email@example.com]
+  
+  # Skills
+  - Skill 1
+  - Skill 2
+  
+  # Experience
+  ## [Company Name] (YYYY-MM - Present)
+  - Accomplishment 1
+  - Accomplishment 2
+  
+  # Education
+  ## [University Name] (YYYY-YYYY)
+  - Degree in [Field]
+  ```
 
-  > The target job description and requirements to tailor the resume accordingly.
+* `jobposting.txt` - Target job description
+  ```markdown
+  # [Job Title]
+  
+  ## Company
+  [Company Name]
+  
+  ## Requirements
+  - Requirement 1
+  - Requirement 2
+  
+  ## Responsibilities
+  - Responsibility 1
+  - Responsibility 2
+  ```
 
-* `markdown/template.txt`
+* `template.txt` - Format preferences
+  ```markdown
+  # Format Preferences
+  
+  Style: [Minimal/Classic/Modern]
+  Colors: [Monochrome/Blue/Custom]
+  Font: [Default/Sans-serif/Serif]
+  
+  # Section Order
+  1. Contact Information
+  2. Summary
+  3. Skills
+  4. Experience
+  5. Education
+  ```
 
-  > Specifications and structure for how the resume should be formatted using LaTeX and styling guidelines.
+## Step 2: Generate LaTeX & CSS
 
----
+Use an AI tool to analyze your inputs and generate:
 
-### Step 2: Generate LaTeX Resume and Style Files
+1. `styles/chmduquesne.tex` - LaTeX content
+2. `styles/chmduquesne.css` - CSS styling
 
-Based on the information above, generate the following:
+The AI should:
+- Match keywords from the job description
+- Highlight relevant skills and experience
+- Format according to your template preferences
 
-* `styles/chmduquesne.tex`
+## Step 3: Build Resume
 
-  > The LaTeX source for the resume content.
-
-* `styles/chmduquesne.css`
-
-  > Styling rules to ensure a clean, professional, and classic resume layout.
-
-Ensure that the output:
-
-* Highlights relevant experience and skills for the job posting
-* Matches the template specification
-* Produces a well-formatted LaTeX structure ready for PDF rendering
-
----
-
-### Step 3: Compile and Review
-
-Generate the PDF resume using Docker:
-
+### Using Docker (recommended)
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
-This will:
-
-* Compile the LaTeX source
-* Apply the CSS styles
-* Produce a PDF file in the `/output` directory
-
----
-
-### Step 4: Debug and Improve
-
-Check for any LaTeX errors or formatting issues:
-
-**Log file to check:**
-
-```
-/output/resume.log
+### Using Local Tools
+```bash
+make all  # or: make pdf, make html, etc.
 ```
 
-If issues are found:
+Output files will be in the `output/` directory.
 
-1. Edit the `.tex` or `.css` files to correct them
-2. Re-run the build process:
+## Step 4: Review & Refine
 
-   ```bash
-   docker-compose up -d
-   ```
+1. Check generated files in the `output/` directory
+2. Review the PDF and HTML versions
+3. Make adjustments to the `.tex` or `.css` files as needed
+4. Rebuild using the commands in Step 3
 
-Repeat as needed until the PDF is error-free and visually polished.
+## Troubleshooting
+
+If you encounter build errors:
+1. Check output logs
+2. Verify LaTeX syntax in `styles/chmduquesne.tex`
+3. Ensure CSS is valid in `styles/chmduquesne.css`
+4. Rebuild with `docker-compose up` or `make`

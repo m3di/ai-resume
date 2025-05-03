@@ -1,7 +1,22 @@
 # action.yml
-name: 'Texlive Build'
-description: 'Build a document using texlive'
+name: 'Resume Builder'
+description: 'Generate resume documents in multiple formats using pandoc and ConTeXt'
+inputs:
+  format:
+    description: 'Output format to generate (pdf, html, docx, rtf, or all)'
+    required: false
+    default: 'all'
+  output_dir:
+    description: 'Directory to place output files'
+    required: false
+    default: 'output'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/mszep/pandoc_resume:master'
-  entrypoint: '/entrypoint.sh'
+  image: 'docker://ghcr.io/mszep/pandoc_resume:latest'
+  args:
+    - ${{ inputs.format }}
+  env:
+    OUT_DIR: ${{ inputs.output_dir }}
+branding:
+  icon: 'file-text'
+  color: 'blue'

@@ -1,125 +1,101 @@
-The Markdown Resume
-===================
+# Pandoc Resume
 
-### Instructions
+A clean, simple resume generation system that converts a LaTeX source file into multiple output formats (PDF, HTML, DOCX, RTF).
+
+## Getting Started
 
 ```bash
 git clone https://github.com/mszep/pandoc_resume
 cd pandoc_resume
 ```
 
-Prepare your input files:
+## Usage Options
 
-* `markdown/me.txt` — Your personal and professional background
-* `markdown/jobposting.txt` — The target job description
-* `markdown/template.txt` — Resume layout and formatting specification
+### Option 1: Local Build
 
-Once these are ready, proceed to generate the `.tex` and style files using your AI or automated tools.
-
----
-
-### Building Resume (Local)
-
-Compile the LaTeX resume and output the PDF:
+Prerequisites:
+* ConTeXt 0.6x
+* Pandoc 2.x
 
 ```bash
+# Generate all formats (PDF, HTML, DOCX, RTF)
 make
-```
 
-Or generate specific formats:
-
-```bash
+# Or generate specific formats
 make pdf
 make html
+make docx
+make rtf
 ```
 
----
+Output files will be in the `output` directory.
 
-### Building Resume (Dockerized)
+### Option 2: Docker Build
+
+No local dependencies required:
 
 ```bash
 docker-compose up -d
 ```
 
-This will compile the LaTeX resume and place the output in the `/output` directory.
+Output files will be in the `output` directory.
 
----
+### Option 3: AI-Assisted Generation
 
-### Requirements
+For an AI-assisted approach:
 
-If not using Docker, install the following dependencies:
+1. Create your input files:
+   * `markdown/me.txt` — Your personal/professional info
+   * `markdown/jobposting.txt` — Target job description
+   * `markdown/template.txt` — Resume layout preferences
 
-* ConTeXt 0.6x
-* Pandoc 2.x *(if you still want to generate from Markdown, optional)*
+2. Use the AI workflow described in `AI_INSTRUCTIONS.md` to generate your LaTeX files
 
-Tested with the above versions. Later versions may work, but are unverified.
+3. Build using either local or Docker methods above
 
----
+## Customization
 
-### Installing Dependencies
+To change style:
+1. Edit `styles/chmduquesne.tex` (content)
+2. Edit `styles/chmduquesne.css` (styling for HTML output)
+3. Rebuild using `make`
 
-#### Debian / Ubuntu
+## Installing Dependencies
 
+### Debian / Ubuntu
 ```bash
 sudo apt install pandoc context
 ```
 
-#### Fedora
-
+### Fedora
 ```bash
 sudo dnf install pandoc texlive-collection-context
 ```
 
-#### Arch
-
+### Arch
 ```bash
 sudo pacman -S pandoc texlive
 ```
 
-#### macOS
-
+### macOS
 ```bash
 brew install pandoc
 brew install --cask mactex
-```
-
-Add TeX binaries to your `PATH`:
-
-```bash
 export PATH=$PATH:/Library/TeX/texbin/
 ```
 
-#### Nix
-
-Enable flakes, then run:
-
+### Nix
 ```bash
 nix build
 ```
 
-Output will appear in `./result`.
+## Troubleshooting
 
----
-
-### Troubleshooting
-
-#### Check Versions
-
-```bash
-context --version
-pandoc --version
-```
-
-#### ConTeXt Not Found
-
-If you get errors like `Cannot find context.lua`, try:
-
+If you encounter ConTeXt errors:
 ```bash
 mtxrun --generate
 ```
 
-More details: [texlive-2011-context-problem](https://tex.stackexchange.com/questions/53892/texlive-2011-context-problem)
-
----
+For more details, see [ConTeXt troubleshooting](https://tex.stackexchange.com/questions/53892/texlive-2011-context-problem).
 
 Would you like this `README.md` turned into a PR or patch for your Git project?
