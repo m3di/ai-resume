@@ -6,9 +6,12 @@ services:
       context: .
       dockerfile: .docker/resume.dockerfile
     volumes:
-      - ./styles:/app/styles
-      - ./output:/output
-    environment:
-      - OUT_DIR=/output
-    command: all # Default to building all formats (pdf, html, docx, rtf)
-    # Alternative commands: pdf, html, docx, rtf
+      - ./output:/app/output
+    # Default to generating PDF
+    command: pdf
+
+# Add usage examples as comments for quick reference
+# Usage:
+# docker-compose run resume clean     # Clean output directory
+# docker-compose run resume pdf       # Generate PDF
+# docker-compose run resume clean-pdf # Clean and generate PDF

@@ -1,23 +1,25 @@
-FROM pandoc/latex:2.9
+FROM debian:10-slim
 
-# Install required dependencies with a single RUN to reduce layers
-RUN apk add --no-cache \
-    make \
-    texlive \
-    texlive-xetex \
-    texlive-context \
-    && mkdir -p /output
+# Avoid prompts from apt
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Set up working directory and environment
+# Install required dependencies (only what's needed for PDF generation)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    context \
+    && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set up working directory
 WORKDIR /app
-ENV TEXMF=/usr/share/texmf-dist
-ENV PATH="/app:$PATH"
 
-# Copy only the necessary files for building
-COPY Makefile /app/
+# Copy only necessary files
 COPY styles/ /app/styles/
-COPY pdc-links-target-blank.lua /app/
+COPY entrypoint.sh /app/
 
-# Set the entrypoint to run make with any provided arguments
-ENTRYPOINT ["make"]
-CMD ["all"]
+# Set the entrypoint script
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+# Default command
+CMD ["pdf"]

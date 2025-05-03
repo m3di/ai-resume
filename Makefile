@@ -1,57 +1,38 @@
-# --------- Build settings ----------------------------------------------------
-OUT_DIR      = output
-STYLE_DIR    = styles
-STYLE_BASE   = chmduquesne          # chmduquesne.tex  /  chmduquesne.css
-TEX_SOURCE   = $(STYLE_DIR)/$(STYLE_BASE).tex
-CSS_SOURCE   = $(STYLE_DIR)/$(STYLE_BASE).css
+# Simple Makefile for PDF resume generation
+OUT_DIR = output
+STYLE_DIR = styles
+STYLE_BASE = chmduquesne
+TEX_SOURCE = $(STYLE_DIR)/$(STYLE_BASE).tex
 
-# --------- Phony targets -----------------------------------------------------
-.PHONY: all pdf html docx rtf init dir clean
+# Phony targets
+.PHONY: all pdf clean clean-pdf
 
-all: pdf html docx rtf           # default target  ->  make
+# Default target generates PDF
+all: pdf
 
-# --------- PDF (ConTeXt) -----------------------------------------------------
-pdf: init
-	@echo "==> $(STYLE_BASE).pdf"
-	@mtxrun --path=$(STYLE_DIR) \
-	        --result=$(STYLE_BASE).pdf \
-	        --script context $(TEX_SOURCE) \
-	        > $(OUT_DIR)/context_$(STYLE_BASE).log 2>&1
-	@mv $(STYLE_BASE).pdf $(OUT_DIR)/
-
-# --------- HTML --------------------------------------------------------------
-html: init
-	@echo "==> $(STYLE_BASE).html"
-	@pandoc --standalone \
-	        --from latex --to html \
-	        --include-in-header $(CSS_SOURCE) \
-	        --lua-filter=pdc-links-target-blank.lua \
-	        --metadata pagetitle="$(STYLE_BASE)" \
-	        --output $(OUT_DIR)/$(STYLE_BASE).html \
-	        $(TEX_SOURCE)
-
-# --------- DOCX --------------------------------------------------------------
-docx: init
-	@echo "==> $(STYLE_BASE).docx"
-	@pandoc --standalone \
-	        --from latex --to docx \
-	        --output $(OUT_DIR)/$(STYLE_BASE).docx \
-	        $(TEX_SOURCE)
-
-# --------- RTF ---------------------------------------------------------------
-rtf: init
-	@echo "==> $(STYLE_BASE).rtf"
-	@pandoc --standalone \
-	        --from latex --to rtf \
-	        --output $(OUT_DIR)/$(STYLE_BASE).rtf \
-	        $(TEX_SOURCE)
-
-# --------- Helpers -----------------------------------------------------------
-init: dir
-
-dir:
+# Create output directory
+$(OUT_DIR):
 	@mkdir -p $(OUT_DIR)
 
+# Generate PDF
+pdf: $(OUT_DIR)
+	@echo "Generating PDF..."
+	@cd $(STYLE_DIR) && context $(STYLE_BASE).tex > ../$(OUT_DIR)/context.log 2>&1
+	@if [ -f "$(STYLE_DIR)/$(STYLE_BASE).pdf" ]; then \
+		cp $(STYLE_DIR)/$(STYLE_BASE).log $(OUT_DIR)/ 2>/dev/null || true; \
+		cp $(STYLE_DIR)/$(STYLE_BASE).tuc $(OUT_DIR)/ 2>/dev/null || true; \
+		mv $(STYLE_DIR)/$(STYLE_BASE).pdf $(OUT_DIR)/; \
+		echo "PDF generated successfully: $(OUT_DIR)/$(STYLE_BASE).pdf"; \
+	else \
+		echo "PDF generation failed. Check logs in $(OUT_DIR)"; \
+		exit 1; \
+	fi
+
+# Clean output directory
 clean:
-	@echo "Cleaning $(OUT_DIR)…"
-	@rm -f $(OUT_DIR)/*
+	@echo "Cleaning output directory..."
+	@rm -rf $(OUT_DIR)/*
+	@echo "Output directory cleaned."
+
+# Clean and then generate PDF
+clean-pdf: clean pdf
