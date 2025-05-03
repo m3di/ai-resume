@@ -1,4 +1,4 @@
-FROM pandoc/latex:latest
+FROM pandoc/latex:2.9
 
 # Install required dependencies with a single RUN to reduce layers
 RUN apk add --no-cache \
