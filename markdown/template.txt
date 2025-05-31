@@ -1,54 +1,17 @@
-A professional resume template is a structured document used to present an individual's work history, skills, and education to potential employers. It's a way to showcase your qualifications and experience in a clear, organized, and visually appealing manner, highlighting your strengths and tailoring your application to each job. 
+A professional resume template is a structured document used to present an individual's work history, skills, and education to potential employers. It's a way to showcase your qualifications and experience in a clear, organized, and visually appealing manner, highlighting your strengths and tailoring your application to each job.
 Here's a more detailed breakdown:
 Key Features of a Professional Resume Template:
 Clear and Concise:
-A good template uses easy-to-read fonts, spacing, and layout to ensure readability. 
+A good template uses easy-to-read fonts, spacing, and layout to ensure readability.
 Well-Organized Sections:
-Essential sections include contact information, a summary or objective, work experience, education, skills, and potentially other relevant areas like projects or certifications. 
+Essential sections include contact information, a summary or objective, work experience, education, skills, and potentially other relevant areas like projects or certifications.
 Tailored to the Job:
-Resume templates should be adaptable to highlight skills and experiences relevant to the specific job you're applying for. 
+Resume templates should be adaptable to highlight skills and experiences relevant to the specific job you're applying for.
 Action-Oriented Language:
-Use strong verbs and quantifiable achievements to demonstrate your accomplishments and impact. 
+Use strong verbs and quantifiable achievements to demonstrate your accomplishments and impact.
 Professional Design:
-The template should be visually appealing and consistent in formatting, including font styles, colors, and spacing. 
+The template should be visually appealing and consistent in formatting, including font styles, colors, and spacing.
 ATS-Friendly (if needed):
-If you're applying for jobs through Applicant Tracking Systems (ATS), consider using templates that are designed to be easily parsed by these systems. 
+If you're applying for jobs through Applicant Tracking Systems (ATS), consider using templates that are designed to be easily parsed by these systems.
 Proofread:
-Thoroughly proofread your resume for any errors in grammar, spelling, or punctuation. 
-
-# Format Preferences
-
-**Style**: Classic
-**Colors**: Blue (for section headings and name), black (for body text)
-**Font**: Sans-serif (clean and professional)
-
----
-
-# Section Order
-
-1. Contact Information
-2. Summary
-3. Professional Experience
-4. Education
-5. Areas of Expertise
-
----
-
-# Layout Details
-
-* **Name & Title**: Large, bold at the top center/left. Title (e.g., Chief Technology Officer) directly below the name.
-* **Contact Information**: Aligned top-right; includes email, phone, location.
-* **Summary**: Short, one-paragraph description of qualifications and background, directly below name and title.
-* **Section Headings**: Uppercase, blue, bold, slightly larger font.
-* **Experience Section**:
-
-  * Entries are ordered chronologically, most recent first.
-  * Each job includes: Company name, location, title, dates (right-aligned).
-  * Responsibilities listed with bullet points, concise and action/result-oriented.
-* **Education**:
-
-  * Degree, institution, location. Ordered from highest to lowest degree.
-* **Areas of Expertise**:
-
-  * Bulleted skills arranged in a multi-column layout.
-  * Covers both technical (e.g., Cloud Computing) and managerial (e.g., Executive Leadership) topics.
+Thoroughly proofread your resume for any errors in grammar, spelling, or punctuation.

@@ -1,11 +1,17 @@
-FROM debian:10-slim
+FROM debian:11-slim
 
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required dependencies (only what's needed for PDF generation)
+# Install required dependencies for LaTeX PDF generation
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    texlive-latex-base \
+    texlive-latex-recommended \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
+    texlive-plain-generic \
     context \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*

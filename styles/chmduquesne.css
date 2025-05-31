@@ -1,70 +1,271 @@
-/* chmduquesne.css - Auto-generated for resume styling */
-body {
-  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-  color: #111;
-  background: #fff;
-  margin: 0;
-  padding: 0;
+/* Modern Professional Resume CSS for Mohammad Mahdi Heydari */
+/* Targeting Senior FullStack Engineer position */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, .section-heading {
-  color: #0066cc;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+body {
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 11pt;
+    line-height: 1.3;
+    color: #222222;
+    background-color: white;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 1in 0.85in;
+}
+
+/* Typography */
+h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #3366cc;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #3366cc;
+    text-transform: uppercase;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #3366cc;
+    padding-bottom: 4px;
+}
+
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 4px;
+}
+
+/* Header section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .name {
-  color: #0066cc;
-  font-size: 2.2em;
-  font-weight: bold;
-  margin-bottom: 0.1em;
+    font-size: 24pt;
+    font-weight: bold;
+    color: #3366cc;
+    margin-bottom: 0.2em;
 }
 
 .title {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-bottom: 1em;
+    font-size: 14pt;
+    color: #222222;
+    margin-bottom: 0.5em;
 }
 
 .contact-info {
-  text-align: right;
-  font-size: 1em;
-  margin-top: -3em;
-  margin-bottom: 2em;
+    font-size: 10pt;
+    color: #666666;
+    line-height: 1.2;
 }
 
+.contact-info a {
+    color: #3366cc;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #3366cc;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #3366cc;
+    padding-bottom: 4px;
+}
+
+/* Professional summary */
 .summary {
-  font-size: 1.1em;
-  margin-bottom: 1.5em;
+    font-size: 11pt;
+    line-height: 1.4;
+    text-align: justify;
+    margin-bottom: 20px;
 }
 
-.experience, .education {
-  margin-bottom: 1.5em;
+/* Skills section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.skill-category {
+    margin-bottom: 12px;
+}
+
+.skill-category-title {
+    font-weight: bold;
+    color: #3366cc;
+    margin-bottom: 4px;
+}
+
+.skill-list {
+    font-size: 10pt;
+    line-height: 1.3;
+}
+
+/* Experience entries */
+.experience-entry {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
 }
 
 .job-title {
-  font-weight: bold;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #222222;
 }
 
 .company {
-  font-style: italic;
+    font-size: 11pt;
+    color: #3366cc;
+    font-weight: 600;
 }
 
-.dates {
-  float: right;
-  color: #555;
+.location {
+    font-size: 10pt;
+    color: #666666;
+    font-style: italic;
 }
 
-.skills {
-  columns: 2 200px;
-  -webkit-columns: 2 200px;
-  -moz-columns: 2 200px;
-  list-style: disc inside;
-  margin-top: 0.5em;
+.date-range {
+    font-size: 10pt;
+    color: #666666;
+    font-weight: normal;
+}
+
+/* Bullet points */
+ul {
+    list-style: none;
+    margin: 8px 0;
+    padding-left: 0;
 }
 
 li {
-  margin-bottom: 0.3em;
+    position: relative;
+    margin-bottom: 6px;
+    padding-left: 16px;
+    font-size: 10pt;
+    line-height: 1.3;
+}
+
+li:before {
+    content: "•";
+    color: #3366cc;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Education section */
+.education-entry {
+    margin-bottom: 12px;
+}
+
+.degree {
+    font-weight: bold;
+    color: #222222;
+}
+
+.institution {
+    color: #3366cc;
+    font-weight: 600;
+}
+
+.gpa {
+    font-style: italic;
+    color: #666666;
+}
+
+/* Languages section */
+.language-entry {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 10pt;
+}
+
+.language-name {
+    font-weight: bold;
+}
+
+.language-level {
+    color: #666666;
+}
+
+/* Achievements section */
+.achievements ul {
+    margin-top: 8px;
+}
+
+.achievements li {
+    margin-bottom: 8px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0.75in;
+        font-size: 10pt;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    .experience-entry {
+        page-break-inside: avoid;
+    }
+    
+    a {
+        color: #222222 !important;
+        text-decoration: none !important;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0.5in;
+        font-size: 10pt;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

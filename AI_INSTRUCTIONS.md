@@ -9,6 +9,16 @@ This guide helps you use AI to create a professionally formatted resume based on
 3. Build your resume in pdf format
 4. Review and refine
 
+## Approach Options
+
+You have two approaches to generate your resume:
+
+### Option A: ConTeXt Approach (Original)
+Uses ConTeXt engine with `styles/chmduquesne.tex` and `styles/chmduquesne.css`
+
+### Option B: LaTeX Approach (New)
+Uses pdfLaTeX engine with `styles/latex.tex` - a modern, comprehensive LaTeX template
+
 ## Step 1: Prepare Input Files
 
 Create these markdown files in the `markdown/` directory:
@@ -67,41 +77,62 @@ Create these markdown files in the `markdown/` directory:
 
 * `template.txt` - This file contains best practices and tips for crafting a strong resume. Please read it carefully before generating your resume.
 
-## Step 2: Generate LaTeX & CSS
+* `critic.txt` - Critical guidelines and specific requirements that the final resume content must follow. This file contains important constraints, style preferences, and content guidelines that should be strictly adhered to in the final output.
 
+## Step 2: Generate Content
+
+### For ConTeXt Approach (Option A)
 Use an AI tool to analyze your inputs and generate:
 
 1. `styles/chmduquesne.tex` - LaTeX content
 2. `styles/chmduquesne.css` - CSS styling
 
+### For LaTeX Approach (Option B)
+Use an AI tool to analyze your inputs and update:
+
+1. `styles/latex.tex` - Read the existing LaTeX template and update its content with your final resume information
+
 The AI should:
 - Match keywords from the job description
 - Highlight relevant skills and experience
 - Format according to your template preferences
+- **Follow all guidelines specified in `critic.txt`**
+- Ensure the final content adheres to the critical requirements and constraints
 
 ## Step 3: Build Resume
 
 ### Using Docker (recommended)
+
+#### For ConTeXt Approach (Option A)
 ```bash
 # Start the container and generate PDF (default action)
 docker-compose up
 
 # Or run specific commands in the container:
-docker-compose run resume pdf       # Generate only the PDF
+docker-compose run resume pdf       # Generate PDF using ConTeXt
 docker-compose run resume clean     # Clean the output directory
-docker-compose run resume clean-pdf # Clean and regenerate the PDF
+docker-compose run resume clean-pdf # Clean and regenerate PDF using ConTeXt
+```
+
+#### For LaTeX Approach (Option B)
+```bash
+# Generate PDF from styles/latex.tex using pdfLaTeX
+docker-compose run resume latex        # Generate PDF using pdfLaTeX
+docker-compose run resume clean-latex  # Clean and regenerate PDF using pdfLaTeX
 ```
 
 The container will mount your local directory, so all changes will be immediately visible in your project folder.
 
-### Using Local Tools
+### Using Local Tools (ConTeXt only)
 ```bash
 make pdf       # Generate PDF
 make clean     # Clean the output directory
 make clean-pdf # Clean and regenerate the PDF
 ```
 
-Output files will be in the `output/` directory.
+Output files will be in the `output/` directory:
+- ConTeXt approach produces: `output/chmduquesne.pdf`
+- LaTeX approach produces: `output/latex.pdf`
 
 ## Step 4: Review & Refine
 
@@ -109,19 +140,25 @@ Output files will be in the `output/` directory.
 2. Review the PDF using your preferred PDF viewer:
    ```bash
    # macOS
-   open output/chmduquesne.pdf
+   open output/chmduquesne.pdf  # For ConTeXt approach
+   open output/latex.pdf        # For LaTeX approach
    
    # Linux
-   xdg-open output/chmduquesne.pdf
+   xdg-open output/chmduquesne.pdf  # For ConTeXt approach
+   xdg-open output/latex.pdf        # For LaTeX approach
    
    # Windows
-   start output/chmduquesne.pdf
+   start output/chmduquesne.pdf  # For ConTeXt approach
+   start output/latex.pdf        # For LaTeX approach
    ```
-3. Make adjustments to the `.tex` or `.css` files as needed
+3. Make adjustments to the appropriate files as needed:
+   - ConTeXt: Edit `styles/chmduquesne.tex` or `styles/chmduquesne.css`
+   - LaTeX: Edit `styles/latex.tex`
 4. Rebuild using the commands in Step 3
 
 ## Troubleshooting
 
+### ConTeXt Approach Issues
 If you encounter build errors:
 1. Check output logs:
    ```bash
@@ -141,7 +178,29 @@ If you encounter build errors:
 
 3. Verify LaTeX syntax in `styles/chmduquesne.tex`
 4. Ensure CSS is valid in `styles/chmduquesne.css`
-5. Rebuild with `docker-compose up` or `make pdf`
+5. Rebuild with `docker-compose run resume pdf`
+
+### LaTeX Approach Issues
+If you encounter build errors:
+1. Check output logs:
+   ```bash
+   # View pdflatex log (contains LaTeX processing information)
+   cat output/pdflatex.log
+   ```
+
+2. Debug inside the container:
+   ```bash
+   # Start an interactive shell in the container
+   docker-compose run --entrypoint /bin/bash resume -c "cd /app && /bin/bash"
+   
+   # From there, run commands manually:
+   cd output
+   pdflatex -interaction=nonstopmode ../styles/latex.tex
+   ```
+
+3. Verify LaTeX syntax in `styles/latex.tex`
+4. Check for missing packages or compilation errors in the log
+5. Rebuild with `docker-compose run resume latex`
 
 ## Docker Container Management
 
