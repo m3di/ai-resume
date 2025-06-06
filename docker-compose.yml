@@ -7,11 +7,19 @@ services:
       dockerfile: .docker/resume.dockerfile
     volumes:
       - ./:/app/
-    # Default to generating PDF
-    command: pdf
+    # Default to showing usage help
+    command: help
 
-# Add usage examples as comments for quick reference
-# Usage:
-# docker-compose run resume clean     # Clean output directory
-# docker-compose run resume pdf       # Generate PDF
-# docker-compose run resume clean-pdf # Clean and generate PDF
+# Usage examples:
+# Basic commands:
+#   docker-compose run resume latex /app/templates/resume.tex           # Generate PDF with default output name
+#   docker-compose run resume latex /app/templates/resume.tex cv       # Generate PDF with custom output name
+#   docker-compose run resume clean                                    # Clean output directory
+#   docker-compose run resume clean-latex /app/templates/resume.tex    # Clean and generate PDF
+#
+# Examples with different input files:
+#   docker-compose run resume latex /app/templates/cv.tex              # Generate from cv.tex
+#   docker-compose run resume latex /app/templates/cover-letter.tex    # Generate from cover-letter.tex
+#
+# Help:
+#   docker-compose run resume help                                     # Show usage instructions

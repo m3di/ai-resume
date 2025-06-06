@@ -4,6 +4,11 @@ FROM debian:11-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install required dependencies for LaTeX PDF generation
+# - texlive-latex-base: Basic LaTeX installation
+# - texlive-latex-recommended: Commonly used LaTeX packages
+# - texlive-latex-extra: Additional LaTeX packages
+# - texlive-fonts-recommended: Standard fonts
+# - texlive-fonts-extra: Additional fonts for professional documents
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     texlive-latex-base \
@@ -19,13 +24,17 @@ RUN apt-get update && \
 # Set up working directory
 WORKDIR /app
 
-# Copy only necessary files
-COPY styles/ /app/styles/
+# Create necessary directories
+RUN mkdir -p /app/templates /app/output
+
+# Copy entrypoint script
 COPY entrypoint.sh /app/
 
-# Set the entrypoint script
+# Make entrypoint executable
 RUN chmod +x /app/entrypoint.sh
+
+# Set the entrypoint script
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-# Default command
-CMD ["pdf"]
+# Default command shows help
+CMD ["help"]

@@ -2,6 +2,7 @@
 *.tuc
 *.swo
 *.swp
+archive/
 output/
 result
 result-*

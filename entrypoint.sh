@@ -8,63 +8,55 @@ mkdir -p /app/output
 clean() {
   echo "Cleaning output directory..."
   rm -rf /app/output/*
-  # Also clean any temporary files in styles directory
-  rm -f /app/styles/*.log /app/styles/*.tuc /app/styles/*.pdf
+  # Also clean any temporary files in templates directory
+  rm -f /app/templates/*.log /app/templates/*.tuc /app/templates/*.pdf
   echo "Output directory cleaned."
-}
-
-# Function to generate PDF from ConTeXt (original functionality)
-generate_context_pdf() {
-  echo "Generating PDF using ConTeXt..."
-  
-  # Copy the tex file to output directory for processing
-  cp /app/styles/chmduquesne.tex /app/output/
-  
-  # Run context in the output directory to keep all temp files there
-  cd /app/output
-  context chmduquesne.tex > context.log 2>&1 
-  
-  # Check if PDF was generated successfully
-  if [ -f "chmduquesne.pdf" ]; then
-    echo "PDF generated successfully and saved to output directory."
-  else
-    echo "Failed to generate PDF. Check logs in output directory for details."
-    exit 1
-  fi
-  
-  # Clean up the copied tex file
-  rm -f /app/output/chmduquesne.tex
 }
 
 # Function to generate PDF from LaTeX
 generate_latex_pdf() {
+  local input_file="$1"
+  local output_name="$2"
+  
   echo "Generating PDF using pdflatex..."
   
-  # Check if latex.tex exists
-  if [ ! -f "/app/styles/latex.tex" ]; then
-    echo "Error: latex.tex not found in /app/styles/"
+  # Check if input file exists
+  if [ ! -f "$input_file" ]; then
+    echo "Error: Input file $input_file not found"
     exit 1
   fi
   
   # Copy the tex file to output directory for processing
-  cp /app/styles/latex.tex /app/output/
+  cp "$input_file" "/app/output/${output_name}.tex"
   
   # Run pdflatex in the output directory to keep all temp files there
   cd /app/output
-  pdflatex -interaction=nonstopmode latex.tex > pdflatex.log 2>&1
+  pdflatex -interaction=nonstopmode "${output_name}.tex" > pdflatex.log 2>&1
   
   # Run pdflatex twice to resolve references
-  pdflatex -interaction=nonstopmode latex.tex >> pdflatex.log 2>&1
+  pdflatex -interaction=nonstopmode "${output_name}.tex" >> pdflatex.log 2>&1
   
   # Check if PDF was generated successfully
-  if [ -f "latex.pdf" ]; then
-    echo "PDF generated successfully: output/latex.pdf"
+  if [ -f "${output_name}.pdf" ]; then
+    echo "PDF generated successfully: output/${output_name}.pdf"
     # Clean up temporary files
-    rm -f latex.tex latex.aux latex.log latex.out
+    rm -f "${output_name}.tex" "${output_name}.aux" "${output_name}.log" "${output_name}.out"
   else
     echo "Failed to generate PDF. Check pdflatex.log in output directory for details."
     exit 1
   fi
+}
+
+# Show usage
+show_usage() {
+  echo "Usage:"
+  echo "  $0 clean                          - Clean output directory"
+  echo "  $0 latex INPUT_FILE [OUTPUT_NAME] - Generate PDF from LaTeX file"
+  echo "  $0 clean-latex INPUT_FILE [OUTPUT_NAME] - Clean and generate PDF"
+  echo ""
+  echo "Examples:"
+  echo "  $0 latex /app/templates/resume.tex resume"
+  echo "  $0 latex /app/templates/cv.tex cv"
 }
 
 # Main command processing
@@ -72,23 +64,29 @@ case "$1" in
   clean)
     clean
     ;;
-  pdf)
-    generate_context_pdf
-    ;;
   latex)
-    generate_latex_pdf
-    ;;
-  clean-pdf)
-    clean
-    generate_context_pdf
+    if [ -z "$2" ]; then
+      echo "Error: Input file not specified"
+      show_usage
+      exit 1
+    fi
+    output_name="${3:-${2##*/}}"
+    output_name="${output_name%.*}"
+    generate_latex_pdf "$2" "$output_name"
     ;;
   clean-latex)
+    if [ -z "$2" ]; then
+      echo "Error: Input file not specified"
+      show_usage
+      exit 1
+    fi
     clean
-    generate_latex_pdf
+    output_name="${3:-${2##*/}}"
+    output_name="${output_name%.*}"
+    generate_latex_pdf "$2" "$output_name"
     ;;
   *)
-    echo "Unknown command: $1"
-    echo "Available commands: clean, pdf, latex, clean-pdf, clean-latex"
+    show_usage
     exit 1
     ;;
 esac 
